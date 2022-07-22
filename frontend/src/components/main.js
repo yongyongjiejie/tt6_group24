@@ -32,7 +32,7 @@ export default function Main() {
     },[]);
 
   return (
-    <div>
+    <div className='main-exrate'>
       <h1>
         Exchange Rates
       </h1>
