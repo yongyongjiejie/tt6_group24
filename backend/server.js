@@ -3,6 +3,12 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
+const user_controller = require("./controllers/tempusers");
+const cors = require('cors');
+
+// To develop if there
+// const jwt = require("jsonwebtoken");
+// const cors = require("cors");
 const userRoute = require('./controllers/users');
 
 
@@ -15,7 +21,7 @@ app.use(
     extended: true,
   })
 );
-
+app.use(cors());
 app.use('/api/users',userRoute);
 
 // Set up connection to mongo db
@@ -29,3 +35,8 @@ mongoose
 
 // open the connection to mongo
 mongoose.connection.on("open", () => {});
+
+// register route
+app.post("/users/register", user_controller.register);
+//  login route
+app.post("/users/login", user_controller.login);
