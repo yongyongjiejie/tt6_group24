@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="main">
       <img id="companyLogo" src={companyLogo} alt="BigCo Inc. logo"/>
-      <h2 className="main-header">DBS SEED Login</h2>
+      <h2 className="main-header">DBS SEED Team 24 Login</h2>
       <nav> 
         <div>
           <Login/>

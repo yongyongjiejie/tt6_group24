@@ -9,6 +9,19 @@ export default function Login() {
     const [password, setPassword] = useState('');
     // const [checkbox, setCheckbox] = useState(false);
 
+    const login = () => {
+        axios.post('http://127.0.0.1:5000/api/auth/login', {
+            headers: {'Content-Type' : 'application/json'},
+            username,
+            password
+            // checkbox
+        }).then(res => {
+            if (res.status === 200) {
+                // navigate('/read');
+            }
+        });
+    }
+
     return (
         <div>
             <Form className="create-form">
@@ -19,11 +32,6 @@ export default function Login() {
                 <Form.Field>
                     <label>Password</label>
                     <input placeholder='Password' onChange={(e) => setPassword(e.target.value)}/>
-                </Form.Field>
-                <Form.Field>
-                    <NavLink className="navbar-item" activeClassName="is-active" to="/register" exact> 
-                        No account? Click here to register 
-                    </NavLink>
                 </Form.Field>
                 <Button type='submit'>Login</Button>
             </Form>
