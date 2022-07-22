@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';  
 import React, { useState } from 'react';
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import axios from 'axios';
@@ -23,18 +24,33 @@ export default function Login() {
     }
 
     return (
-        <div>
+
+            <div class="form-group">
             <Form className="create-form">
+            <div class="row">
                 <Form.Field>
-                    <label>Username</label>
-                    <input placeholder='Username' onChange={(e) => setUsername(e.target.value)}/>
+                <div class="col">
+                    <p class="fs-6 text-white">Username</p>
+                </div>
+                <div class="col">
+                    <input placeholder='Username' class="form-control" onChange={(e) => setUsername(e.target.value)}/>
+                </div>
                 </Form.Field>
+            </div>
+            <div class="row pt-3">
                 <Form.Field>
-                    <label>Password</label>
-                    <input placeholder='Password' onChange={(e) => setPassword(e.target.value)}/>
+                <div class="col">
+                    <p class="fs-6 text-white">Password</p>
+                </div>
+                <div class="col">
+                        <input placeholder='Password' class="form-control" onChange={(e) => setPassword(e.target.value)}/>
+                </div>
                 </Form.Field>
-                <Button type='submit'>Login</Button>
+                </div>
+                <div class="row p-2 w-50">
+                    <Button class='form-control btn btn-danger' type='submit' >Login</Button>
+                </div>
             </Form>
-        </div>
+            </div>
     )
 }
