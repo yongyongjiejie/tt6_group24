@@ -24,12 +24,12 @@ function App() {
   }, []);
 
   return (
-    <div class="Container">
+    <div className="Container">
       <div className="main">
         <img id="companyLogo" src={companyLogo} alt="BigCo Inc. logo"/>
         <h2 className="main-header">DBS SEED Team 24 Login</h2>
         <nav> 
-          <div class="login-box">
+          <div className="login-box">
             <Login/>
           </div>
         </nav>

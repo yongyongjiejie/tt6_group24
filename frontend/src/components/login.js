@@ -25,30 +25,30 @@ export default function Login() {
 
     return (
 
-            <div class="form-group">
+            <div className="form-group">
             <Form className="create-form">
-            <div class="row">
+            <div className="row">
                 <Form.Field>
-                <div class="col">
-                    <p class="fs-6 text-white">Username</p>
+                <div className="col">
+                    <p className="fs-6 text-white">Username</p>
                 </div>
-                <div class="col">
-                    <input placeholder='Username' class="form-control" onChange={(e) => setUsername(e.target.value)}/>
+                <div className="col">
+                    <input placeholder='Username' className="form-control" onChange={(e) => setUsername(e.target.value)}/>
                 </div>
                 </Form.Field>
             </div>
-            <div class="row pt-3">
+            <div className="row pt-3">
                 <Form.Field>
-                <div class="col">
-                    <p class="fs-6 text-white">Password</p>
+                <div className="col">
+                    <p className="fs-6 text-white">Password</p>
                 </div>
-                <div class="col">
-                        <input placeholder='Password' class="form-control" onChange={(e) => setPassword(e.target.value)}/>
+                <div className="col">
+                        <input placeholder='Password' className="form-control" onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 </Form.Field>
                 </div>
-                <div class="row p-2 w-50">
-                    <Button class='form-control btn btn-danger' type='submit' >Login</Button>
+                <div className="row p-2 w-50">
+                    <Button className='form-control btn btn-danger' type='submit' >Login</Button>
                 </div>
             </Form>
             </div>
