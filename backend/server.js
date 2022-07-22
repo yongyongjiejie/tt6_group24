@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
 const user_controller = require("./controllers/tempusers");
+const cors = require('cors');
 
 // To develop if there
 // const jwt = require("jsonwebtoken");
@@ -20,7 +21,7 @@ app.use(
     extended: true,
   })
 );
-
+app.use(cors());
 app.use('/api/users',userRoute);
 
 // Set up connection to mongo db
