@@ -30,6 +30,6 @@ mongoose
 mongoose.connection.on("open", () => {});
 
 // register route
-app.post("/user/register", user_controller.register);
+app.post("/users/register", user_controller.register);
 //  login route
 app.post("/users/login", user_controller.login);
