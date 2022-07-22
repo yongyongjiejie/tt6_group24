@@ -18,7 +18,7 @@ export default function Login() {
         qs.stringify({ 'username': username, 'password':password }
         )).then(res => {
             if (res.status === 200) {
-                navigate('/transaction');
+                navigate('/main');
             }
         });
     }
