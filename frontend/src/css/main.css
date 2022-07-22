@@ -1,0 +1,16 @@
+
+  .main-exrate{
+    padding: 12px;
+    background-color: #282c34;
+    color: #fafafa;
+    min-height: 100vh;   
+  }
+  .card {
+    border: 1px solid #ffffff;
+    padding: 12px;
+    margin-top: 12px;
+  }
+
+  .rate {
+    margin-left: 12px;
+  }

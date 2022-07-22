@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -18,7 +18,7 @@ root.render(
       <Route path="Login" element={<Login />} />
       <Route path="wallet" element={<Wallet />} />
       <Route path="transaction" element={<Transaction />} />
-      <Route path="main" element={<Main />} />
+      <Route path="Main" element={<Main />} />
     </Routes>
   </BrowserRouter>
 );
