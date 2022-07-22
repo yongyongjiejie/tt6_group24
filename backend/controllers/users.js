@@ -1,7 +1,5 @@
 const user_model = require("../models/users");
-import express  from "express";
-
-const router = express.Router();
+const router = require('express').Router();
 
 var currencies=[
     {
@@ -12,9 +10,16 @@ var currencies=[
     },
 ];
 
-router.get('/', getAllExhangeRates = (req,res)=>{
-    console.log(currencies);
-    res.send(currencies);
-});
+// router.get('/', getAllExhangeRates = (req,res)=>{
+//     console.log(currencies);
+//     res.send(currencies);
+// });
 
-export default router;
+router.get('/', (req,res) => {
+    res.send("hello");
+    User.find().then(user => {
+        res.status(200).send(user)
+    })
+})
+
+module.exports = router
