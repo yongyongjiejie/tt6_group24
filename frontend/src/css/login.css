@@ -1,0 +1,4 @@
+.formBtnDiv {
+    display: flex;
+    justify-content: space-evenly;
+  }
