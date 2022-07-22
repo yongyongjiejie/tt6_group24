@@ -16,35 +16,6 @@ const user_controller = {
         {
           $or: [{ username: username }],
         }
-        // (err, result) => {
-        //     // even if dont have result will be null
-        //     if (result) {
-        //         // means exist
-        //         console.log(result);
-        //         res.send(
-        //             `Username/Email exists. Proceed to <a href="/">login</a>`
-        //         );
-        //         return;
-        //     } else {
-        //         let salt = uuid.v4();
-        //         let combination = salt + password;
-        //         let hash = sha256(combination).toString();
-        //         user_model
-        //             .create({
-        //                 first_name: first_name,
-        //                 last_name: last_name,
-        //                 email: email,
-        //                 pwsalt: salt,
-        //                 hash: hash,
-        //             })
-        //             .then((result) => {
-        //                 res.redirect("/");
-        //             })
-        //             .catch((err) => {
-        //                 console.log(err);
-        //             });
-        //     }
-        // }
       )
       .then((result) => {
         if (result) {
@@ -99,6 +70,11 @@ const user_controller = {
   login: (req, res) => {
     username = req.body.username;
     password = req.body.password;
+    console.log(username);
+    console.log(password);
+    res.json({
+      success: true,
+    });
     userModel.findOne({ username: username }, (err, result) => {
       if (result) {
         if (sha256(result.pwsalt + password).toString() === result.hashpw) {
