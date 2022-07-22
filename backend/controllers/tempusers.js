@@ -1,5 +1,5 @@
 const userModel = require("../models/users");
-const SHA256 = require("crypto-js/sha256");
+const sha256 = require("crypto-js/sha256");
 const uuid = require("uuid");
 
 const user_controller = {
@@ -57,14 +57,14 @@ const user_controller = {
           });
           return;
         }
-
+        console.log("I should be here");
         let salt = uuid.v4();
         let combination = salt + password;
         let hash = sha256(combination).toString();
         userModel
           .create({
-            first_name: first_name,
-            last_name: last_name,
+            firstname: first_name,
+            lastname: last_name,
             username: username,
             pwsalt: salt,
             hashpw: hash,
@@ -76,6 +76,7 @@ const user_controller = {
             });
           })
           .catch((err) => {
+            console.log(err);
             res.statusCode = 500;
             res.json({
               success: false,
@@ -100,7 +101,7 @@ const user_controller = {
     password = req.body.password;
     userModel.findOne({ username: username }, (err, result) => {
       if (result) {
-        if (SHA256(result.pwsalt + password).toString() === result.hashpw) {
+        if (sha256(result.pwsalt + password).toString() === result.hashpw) {
           res.json({
             success: true,
           });
