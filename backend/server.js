@@ -7,6 +7,7 @@ const user_controller = require("./controllers/tempusers");
 // To develop if there
 // const jwt = require("jsonwebtoken");
 // const cors = require("cors");
+const userRoute = require('./controllers/users');
 
 const PORT = process.env.PORT;
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}`;
@@ -17,6 +18,9 @@ app.use(
     extended: true,
   })
 );
+
+app.use('/api/users',userRoute);
+
 // Set up connection to mongo db
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
