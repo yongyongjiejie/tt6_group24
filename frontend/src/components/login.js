@@ -11,12 +11,13 @@ export default function Login() {
     // const [checkbox, setCheckbox] = useState(false);
 
     const login = () => {
-        axios.post('http://127.0.0.1:5000/api/auth/login', {
+        axios.post('http://127.0.0.1:5000/users/login', {
             headers: {'Content-Type' : 'application/json'},
             username,
             password
             // checkbox
         }).then(res => {
+            console.log("yoyo");
             if (res.status === 200) {
                 // navigate('/read');
             }
@@ -48,7 +49,7 @@ export default function Login() {
                 </Form.Field>
                 </div>
                 <div class="row p-2 w-50">
-                    <Button class='form-control btn btn-danger' type='submit' >Login</Button>
+                    <Button onClick={login} class='form-control btn btn-danger' type='submit' >Login</Button>
                 </div>
             </Form>
             </div>

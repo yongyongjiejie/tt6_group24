@@ -1,3 +1,4 @@
+const router  = require ('./routes/users.js');
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -9,9 +10,10 @@ const user_controller = require("./controllers/tempusers");
 // const cors = require("cors");
 const userRoute = require('./controllers/users');
 
-const PORT = process.env.PORT;
+
+const PORT = process.env.PORT||5001;
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}`;
-// mongoose.set("useFindAndModify", false);
+
 
 app.use(
   express.urlencoded({
