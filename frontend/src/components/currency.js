@@ -7,7 +7,7 @@ const currency = ({ExchangeRateSymbol,ExchangeRate}) => {
         <span>
             {ExchangeRateSymbol}
         </span>
-        <span className={stylrs.rate}>
+        <span className={styles.rate}>
             {ExchangeRate}
         </span>
     </div>
