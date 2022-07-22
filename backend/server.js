@@ -1,17 +1,23 @@
+const router  = require ('./routes/users.js');
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const PORT = process.env.PORT;
+
+const PORT = process.env.PORT||5001;
 const mongoURI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}`;
-// mongoose.set("useFindAndModify", false);
+
 
 app.use(
   express.urlencoded({
     extended: true,
   })
 );
+
+//app.use('/', router);
+app.get('/',(req,res)=> res.send('Hello from Homeplace'));
+
 // Set up connection to mongo db
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })

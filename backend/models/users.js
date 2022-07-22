@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
 
-user_model = {};
+const user_model = [];
 
-module.exports(user_model);
+module.exports = user_model;

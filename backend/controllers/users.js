@@ -1,7 +1,4 @@
-const user_model = require("../models/users");
-import express  from "express";
 
-const router = express.Router();
 
 var currencies=[
     {
@@ -12,9 +9,10 @@ var currencies=[
     },
 ];
 
-router.get('/', getAllExhangeRates = (req,res)=>{
+const getAllExhangeRates = (req,res)=>{
     console.log(currencies);
-    res.send(currencies);
-});
+    res.send("currencies");
+}
+module.exports = {getAllExhangeRates};
 
-export default router;
+
