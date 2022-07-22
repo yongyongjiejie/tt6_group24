@@ -18,32 +18,32 @@ export default function Login() {
         qs.stringify({ 'username': username, 'password':password }
         )).then(res => {
             if (res.status === 200) {
-                navigate('/transaction');
+                navigate('/main');
             }
         });
     }
 
     return (
 
-            <div class="form-group">
+            <div className="form-group">
             <Form className="create-form">
-            <div class="row">
+            <div className="row">
                 <Form.Field>
-                <div class="col">
-                    <p class="fs-6 text-white">Username</p>
+                <div className="col">
+                    <p className="fs-6 text-white">Username</p>
                 </div>
-                <div class="col">
-                    <input placeholder='Username' class="form-control" onChange={(e) => setUsername(e.target.value)}/>
+                <div className="col">
+                    <input placeholder='Username' className="form-control" onChange={(e) => setUsername(e.target.value)}/>
                 </div>
                 </Form.Field>
             </div>
-            <div class="row pt-3">
+            <div className="row pt-3">
                 <Form.Field>
-                <div class="col">
-                    <p class="fs-6 text-white">Password</p>
+                <div className="col">
+                    <p className="fs-6 text-white">Password</p>
                 </div>
-                <div class="col">
-                        <input placeholder='Password' class="form-control" onChange={(e) => setPassword(e.target.value)}/>
+                <div className="col">
+                        <input placeholder='Password' className="form-control" onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 </Form.Field>
                 </div>

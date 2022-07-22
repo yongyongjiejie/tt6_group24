@@ -1,17 +1,17 @@
-import styles from '../App.css'
+import '../css/main.css'
 
-const currency = ({ExchangeRateSymbol,ExchangeRate}) => {
+const Currency = ({exchangeRateSymbol,exchangeRate, currencyBase}) => {
     
     return ( 
-    <div className={styles.card}>
+    <div className="card_currency">
         <span>
-            {ExchangeRateSymbol}
+            {currencyBase} to {exchangeRateSymbol} 
         </span>
-        <span className={styles.rate}>
-            {ExchangeRate}
+        <span className="rate">
+            {exchangeRate}
         </span>
     </div>
     );
 };
 
-export default currency;
+export default Currency;

@@ -38,6 +38,13 @@ export default function Wallet() {
                 <td>{value.name}</td>
                 <td>{value.currency}</td>
                 <td>{value.amount}</td>
+                <td>
+                  <button
+                    // onClick={() => deleteTableRows(index)}
+                  >
+                    Delete Account
+                  </button>
+                </td>
               </tr>
             );
           })}

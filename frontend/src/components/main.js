@@ -1,45 +1,61 @@
-import * as React from 'react'
-import currency from './currency';
-  
-const main = () => {
+import * as React from "react";
+import "../css/main.css";
+import { fetchExchangeRates } from "../ExRates/ExRates";
+import Currency from "./currency.js";
+import { Button, Checkbox, Form } from 'semantic-ui-react'
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
-    const [rates,setRates] = React.useState(null);
+export default function Main() {
+  const [rates, setRates] = React.useState(null);
+  const [currencyBase, setcurrencyBase] = React.useState("");
+  const navigate = useNavigate();
 
-    React.useEffect(()=>{
-        let componentMounted=true;
-        const getExchangeRates = () =>{
-            //backend
-            fetchExchangeRates()
-            .then((data) => {
-                console.log('Exchange Rate:', data)
-                if(componentMounted){
-                    setRates(data.rates);
-                }
-            })
-            .catch((err)=>{
-                console.log(err)
-            });
-        };
-        
-        getExchangeRates();
+  React.useEffect(() => {
+    let componentMounted = true;
+    const getExchangeRates = () => {
+      //backend
+      fetchExchangeRates()
+        .then((data) => {
+          console.log("Exchange Rate:", data);
+          if (componentMounted) {
+            setRates(data.rates);
+            setcurrencyBase(data.base);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
 
-        return()=>{
-            componentMounted = false
-        };
-    },[]);
+    getExchangeRates();
+
+    return () => {
+      componentMounted = false;
+    };
+  }, []);
+
+const goToWallet = () => {
+    navigate('/wallet');
+ }
+
+ const goToTransaction = () => {
+  navigate('/transaction');
+}
 
   return (
-    <div className={styles.main}>
-      <h1>
-        Exchange Rates
-      </h1>
-      {rates ? Object.keys(rates).map(key=>
-      <currency ExchangeRateSymbol={key}
-                ExchangeRate={rates[key]}
-        />
-        ): []}
+    <div className="main-exrate">
+      <h1>Exchange Rates</h1>
+      <Button type='submit'onClick={goToWallet} >Wallet</Button>
+      <Button type='submit' onClick={goToTransaction}>Transaction</Button>
+      {rates
+        ? Object.keys(rates).map((key) => (
+            <Currency
+              exchangeRateSymbol={key}
+              exchangeRate={rates[key]}
+              currencyBase={currencyBase}
+            />
+          ))
+        : []}
     </div>
   );
-};
-  
-export default main;
+}

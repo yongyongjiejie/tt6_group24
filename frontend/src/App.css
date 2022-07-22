@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 .App {
   text-align: center;
@@ -26,7 +26,9 @@
   color: white;
 }
 
-body {background-color: #D3D3D3;}
+body {
+  background-color: #d3d3d3;
+}
 
 .App-link {
   color: #61dafb;
@@ -41,7 +43,7 @@ body {background-color: #D3D3D3;}
   }
 }
 
-.main{
+.main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,22 +51,21 @@ body {background-color: #D3D3D3;}
   flex-wrap: wrap;
 }
 
-.main-header{
-  font-family: 'Montserrat', sans-serif;
-  margin-right:20px;
+.main-header {
+  font-family: "Montserrat", sans-serif;
+  margin-right: 20px;
 }
 
-.create-form label{
+.create-form label {
   color: black !important;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 12px !important;
 }
 
 #companyLogo {
   width: 5%;
-  margin-right:20px;
+  margin-right: 20px;
 }
-
 
 .main {
   padding: 12px;
@@ -91,16 +92,16 @@ body {background-color: #D3D3D3;}
   margin-left: 12px;
 }
 
-.Container{
+.Container {
   background-image: url(images/login_bg.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .login-box {
-	background-color: rgba(0, 0, 0, 0.5);
-	margin: auto auto;
-	padding: 40px;
-	border-radius: 5px;
-	box-shadow: 0 0 10px #000;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto auto;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #000;
 }
