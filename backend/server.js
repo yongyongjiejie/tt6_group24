@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
+const userRoute = require('./controllers/users');
 
 
 const PORT = process.env.PORT||5001;
@@ -15,8 +16,7 @@ app.use(
   })
 );
 
-//app.use('/', router);
-app.get('/',(req,res)=> res.send('Hello from Homeplace'));
+app.use('/api/users',userRoute);
 
 // Set up connection to mongo db
 mongoose
