@@ -1,48 +1,47 @@
-import * as React from 'react'
-import '../css/main.css'
-import { fetchExchangeRates } from '../ExRates/ExRates';
-import Currency from './Currency.js'
+import * as React from "react";
+import "../css/main.css";
+//import { fetchExchangeRates } from "../ExRates/ExRates";
+import Currency from "./currency.js";
 export default function Main() {
+  const [rates, setRates] = React.useState(null);
+  const [currencyBase, setcurrencyBase] = React.useState("");
 
-    const [rates,setRates] = React.useState(null)
-    const [currencyBase, setcurrencyBase] = React.useState('')
+  React.useEffect(() => {
+    let componentMounted = true;
+    // const getExchangeRates = () => {
+    //   //backend
+    //   fetchExchangeRates()
+    //     .then((data) => {
+    //       console.log("Exchange Rate:", data);
+    //       if (componentMounted) {
+    //         setRates(data.rates);
+    //         setcurrencyBase(data.base);
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // };
 
-    React.useEffect(()=>{
-        let componentMounted=true;
-        const getExchangeRates = () =>{
-            //backend
-            fetchExchangeRates()
-            .then((data) => {
-                console.log('Exchange Rate:', data)
-                if(componentMounted){
-                    setRates(data.rates);
-                    setcurrencyBase(data.base)
-                }
-            })
-            .catch((err)=>{
-                console.log(err)
-            });
-        };
-        
-        getExchangeRates();
+    // getExchangeRates();
 
-        return()=>{
-            componentMounted = false
-        };
-    },[]);
+    return () => {
+      componentMounted = false;
+    };
+  }, []);
 
   return (
-    <div className='main-exrate'>
-      <h1>
-        Exchange Rates
-      </h1>
-      {rates ? Object.keys(rates).map((key)=>(
-      <Currency exchangeRateSymbol={key}
-                exchangeRate={rates[key]}
-                currencyBase={currencyBase}
-        />
-        )): []}
+    <div className="main-exrate">
+      <h1>Exchange Rates</h1>
+      {rates
+        ? Object.keys(rates).map((key) => (
+            <Currency
+              exchangeRateSymbol={key}
+              exchangeRate={rates[key]}
+              currencyBase={currencyBase}
+            />
+          ))
+        : []}
     </div>
   );
 }
-  
