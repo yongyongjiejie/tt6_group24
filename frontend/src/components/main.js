@@ -1,9 +1,11 @@
 import * as React from 'react'
-import currency from './currency';
-  
-const main = () => {
+import '../css/main.css'
+import { fetchExchangeRates } from '../ExRates/ExRates';
+import Currency from './Currency.js'
+export default function Main() {
 
-    const [rates,setRates] = React.useState(null);
+    const [rates,setRates] = React.useState(null)
+    const [currencyBase, setcurrencyBase] = React.useState('')
 
     React.useEffect(()=>{
         let componentMounted=true;
@@ -14,6 +16,7 @@ const main = () => {
                 console.log('Exchange Rate:', data)
                 if(componentMounted){
                     setRates(data.rates);
+                    setcurrencyBase(data.base)
                 }
             })
             .catch((err)=>{
@@ -29,17 +32,17 @@ const main = () => {
     },[]);
 
   return (
-    <div className={styles.main}>
+    <div>
       <h1>
         Exchange Rates
       </h1>
-      {rates ? Object.keys(rates).map(key=>
-      <currency ExchangeRateSymbol={key}
-                ExchangeRate={rates[key]}
+      {rates ? Object.keys(rates).map((key)=>(
+      <Currency exchangeRateSymbol={key}
+                exchangeRate={rates[key]}
+                currencyBase={currencyBase}
         />
-        ): []}
+        )): []}
     </div>
   );
-};
+}
   
-export default main;

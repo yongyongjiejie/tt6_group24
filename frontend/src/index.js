@@ -9,13 +9,14 @@ import {
   Route,
 } from "react-router-dom";
 import Login from './components/login';
-
+import Main from './components/main'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="Login" element={<Login />} />
+        <Route path="Main" element={<Main />} />
       </Routes>
   </BrowserRouter>
 );
