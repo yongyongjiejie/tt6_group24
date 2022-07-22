@@ -3,7 +3,7 @@ import '../css/main.css'
 const Currency = ({exchangeRateSymbol,exchangeRate, currencyBase}) => {
     
     return ( 
-    <div className="card">
+    <div className="card_currency">
         <span>
             {currencyBase} to {exchangeRateSymbol} 
         </span>
